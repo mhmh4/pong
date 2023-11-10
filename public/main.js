@@ -1,11 +1,21 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+function getRandomNonZeroIntInclusive(min, max) {
+  let number;
+
+  do {
+    number = Math.floor(Math.random() * (max - min + 1)) + min;
+  } while (number === 0);
+
+  return number;
+}
+
 class Ball {
   width = 10;
 
-  speedX = -2;
-  speedY = 2;
+  speedX = getRandomNonZeroIntInclusive(-3, 3);
+  speedY = getRandomNonZeroIntInclusive(-3, 3);
 
   constructor(x, y) {
     this.initialX = x;
