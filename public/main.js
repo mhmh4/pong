@@ -71,6 +71,14 @@ class Paddle {
     ctx.fillStyle = "#fff";
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
+
+  moveUp() {
+    this.y -= 20;
+  }
+
+  moveDown() {
+    this.y += 20;
+  }
 }
 
 const b = new Ball(canvas.width / 2, canvas.height / 2);
@@ -80,6 +88,21 @@ const p2 = new Paddle((9 * canvas.width) / 10, canvas.height / 3, 10, 100);
 
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 b.draw();
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "w") {
+    p1.moveUp();
+  }
+  if (event.key === "s") {
+    p1.moveDown();
+  }
+  if (event.key === "k") {
+    p2.moveUp();
+  }
+  if (event.key === "m") {
+    p2.moveDown();
+  }
+});
 
 setInterval(() => {
   b.foo(canvas);
