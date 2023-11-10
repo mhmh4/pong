@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 class Ball {
   width = 10;
 
-  speedX = 2;
+  speedX = -2;
   speedY = 2;
 
   constructor(x, y) {
@@ -65,6 +65,8 @@ class Paddle {
 
 const b = new Ball(canvas.width / 2, canvas.height / 2);
 
+const p1 = new Paddle(canvas.width / 10, (2 * canvas.height) / 3, 10, 100);
+
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 b.draw();
 
@@ -75,5 +77,7 @@ setInterval(() => {
 
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   b.draw();
+  p1.draw();
 }, 10);
