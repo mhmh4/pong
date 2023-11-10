@@ -39,9 +39,10 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 b.draw();
 
 setInterval(() => {
+  b.foo(canvas);
   b.translate();
+
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  b.foo(canvas);
   b.draw();
 }, 10);
