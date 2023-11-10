@@ -17,15 +17,14 @@ class Ball {
   }
 }
 
-const b = new Ball(10, 10);
+const b = new Ball(canvas.width / 2, canvas.height / 2);
 
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 b.draw();
 
-b.translate(100, 100);
-
-setTimeout(() => {
+setInterval(() => {
+  b.translate(1, 1);
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   b.draw();
-}, 500);
+}, 10);
