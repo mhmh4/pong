@@ -4,6 +4,9 @@ const ctx = canvas.getContext("2d");
 class Ball {
   width = 10;
 
+  speedX = 2;
+  speedY = 2;
+
   constructor(x, y) {
     this.position = { x, y };
   }
@@ -13,9 +16,9 @@ class Ball {
     ctx.fillRect(this.position.x, this.position.y, this.width, this.width);
   }
 
-  translate(x, y) {
-    this.position.x += x;
-    this.position.y += y;
+  translate() {
+    this.position.x += this.speedX;
+    this.position.y += this.speedY;
   }
 
   foo(canvas) {
@@ -34,7 +37,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 b.draw();
 
 setInterval(() => {
-  b.translate(1, 1);
+  b.translate();
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   b.foo(canvas);
