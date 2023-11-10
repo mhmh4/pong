@@ -2,13 +2,15 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 class Ball {
+  width = 10;
+
   constructor(x, y) {
     this.position = { x, y };
   }
 
   draw() {
     ctx.fillStyle = "#fff";
-    ctx.fillRect(this.position.x, this.position.y, 10, 10);
+    ctx.fillRect(this.position.x, this.position.y, this.width, this.width);
   }
 
   translate(x, y) {
@@ -17,10 +19,10 @@ class Ball {
   }
 
   foo(canvas) {
-    if (this.position.y + 10 <= 0) {
+    if (this.position.y + this.width <= 0) {
       console.log("hit top");
     }
-    if (this.position.y + 10 >= canvas.height) {
+    if (this.position.y + this.width >= canvas.height) {
       console.log("hit bottom");
     }
   }
