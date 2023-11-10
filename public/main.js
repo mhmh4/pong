@@ -15,6 +15,15 @@ class Ball {
     this.position.x += x;
     this.position.y += y;
   }
+
+  foo(canvas) {
+    if (this.position.y + 10 <= 0) {
+      console.log("hit top");
+    }
+    if (this.position.y + 10 >= canvas.height) {
+      console.log("hit bottom");
+    }
+  }
 }
 
 const b = new Ball(canvas.width / 2, canvas.height / 2);
@@ -26,5 +35,6 @@ setInterval(() => {
   b.translate(1, 1);
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  b.foo(canvas);
   b.draw();
 }, 10);
