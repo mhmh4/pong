@@ -76,6 +76,7 @@ class Paddle {
 const b = new Ball(canvas.width / 2, canvas.height / 2);
 
 const p1 = new Paddle(canvas.width / 10, (2 * canvas.height) / 3, 10, 100);
+const p2 = new Paddle((9 * canvas.width) / 10, canvas.height / 3, 10, 100);
 
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 b.draw();
@@ -90,4 +91,5 @@ setInterval(() => {
 
   b.draw();
   p1.draw();
+  p2.draw();
 }, 10);
