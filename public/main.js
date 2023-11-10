@@ -8,6 +8,8 @@ class Ball {
   speedY = 2;
 
   constructor(x, y) {
+    this.initialX = x;
+    this.initialY = y;
     this.position = { x, y };
   }
 
