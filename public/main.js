@@ -33,6 +33,20 @@ class Ball {
       this.speedY *= -1;
     }
   }
+
+  reset() {
+    this.position.x = this.initialX;
+    this.position.y = this.initialY;
+  }
+
+  bar(canvas) {
+    if (
+      this.position.x + this.width <= 0 ||
+      this.position.x + this.width >= canvas.width
+    ) {
+      this.reset();
+    }
+  }
 }
 
 const b = new Ball(canvas.width / 2, canvas.height / 2);
@@ -42,6 +56,7 @@ b.draw();
 
 setInterval(() => {
   b.foo(canvas);
+  b.bar(canvas);
   b.translate();
 
   ctx.fillStyle = "#000";
