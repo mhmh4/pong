@@ -47,13 +47,18 @@ class Ball {
     this.position.y = this.initialY;
   }
 
-  bar(canvas) {
-    if (
-      this.position.x + this.width <= 0 ||
-      this.position.x + this.width >= canvas.width
-    ) {
+  bar(canvas, score1, score2) {
+    if (this.position.x + this.width <= 0) {
+      score2++;
       this.reset();
     }
+
+    if (this.position.x + this.width >= canvas.width) {
+      score1++;
+      this.reset();
+    }
+
+    return [score1, score2];
   }
 
   baz(paddle) {
@@ -136,7 +141,7 @@ ctx.font = "15px sans-serif";
 
 function animate() {
   b.foo(canvas);
-  b.bar(canvas);
+  [score1, score2] = b.bar(canvas, score1, score2);
   b.baz(p1);
   b.baz(p2);
 
