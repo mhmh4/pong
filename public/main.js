@@ -69,6 +69,8 @@ class Ball {
 }
 
 class Paddle {
+  speed = 0;
+
   constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
@@ -87,6 +89,10 @@ class Paddle {
 
   moveDown() {
     this.y += 20;
+  }
+
+  update() {
+    this.y += this.speed;
   }
 }
 
@@ -117,6 +123,8 @@ function animate() {
   b.baz(p2);
 
   b.translate();
+  p1.update();
+  p2.update();
 
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
