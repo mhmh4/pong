@@ -35,11 +35,9 @@ class Ball {
 
   foo(canvas) {
     if (this.position.y <= 0) {
-      console.log("hit top");
       this.speedY *= -1;
     }
     if (this.position.y + this.width >= canvas.height) {
-      console.log("hit bottom");
       this.speedY *= -1;
     }
   }
@@ -96,9 +94,6 @@ const b = new Ball(canvas.width / 2, canvas.height / 2);
 
 const p1 = new Paddle(canvas.width / 10, (2 * canvas.height) / 3, 10, 100);
 const p2 = new Paddle((9 * canvas.width) / 10, canvas.height / 3, 10, 100);
-
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-b.draw();
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "w") {
