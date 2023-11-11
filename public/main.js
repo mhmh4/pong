@@ -57,6 +57,17 @@ class Ball {
       this.reset();
     }
   }
+
+  baz(paddle) {
+    if (
+      this.position.x + this.width >= paddle.x &&
+      this.position.x <= paddle.x + paddle.width &&
+      this.position.y + this.width >= paddle.y &&
+      this.position.y <= paddle.y + paddle.height
+    ) {
+      this.speedX *= -1;
+    }
+  }
 }
 
 class Paddle {
@@ -107,6 +118,9 @@ document.addEventListener("keydown", (event) => {
 setInterval(() => {
   b.foo(canvas);
   b.bar(canvas);
+  b.baz(p1);
+  b.baz(p2);
+
   b.translate();
 
   ctx.fillStyle = "#000";
