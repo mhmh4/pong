@@ -115,7 +115,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-setInterval(() => {
+function animate() {
   b.foo(canvas);
   b.bar(canvas);
   b.baz(p1);
@@ -129,4 +129,8 @@ setInterval(() => {
   b.draw();
   p1.draw();
   p2.draw();
-}, 10);
+
+  requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);
