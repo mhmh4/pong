@@ -104,33 +104,46 @@ const b = new Ball(canvas.width / 2, canvas.height / 2);
 const p1 = new Paddle(canvas.width / 10, (2 * canvas.height) / 3, 10, 100);
 const p2 = new Paddle((9 * canvas.width) / 10, canvas.height / 3, 10, 100);
 
+const keysPressed = {
+  p1: {},
+  p2: {},
+};
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "w") {
-    p1.setSpeed(-10);
+    keysPressed.p1.w = true;
+    p1.setSpeed(keysPressed.p1.s ? 0 : -10);
   }
   if (event.key === "s") {
-    p1.setSpeed(10);
+    keysPressed.p1.s = true;
+    p1.setSpeed(keysPressed.p1.w ? 0 : 10);
   }
   if (event.key === "k") {
-    p2.setSpeed(-10);
+    keysPressed.p2.k = true;
+    p2.setSpeed(keysPressed.p2.m ? 0 : -10);
   }
   if (event.key === "m") {
-    p2.setSpeed(10);
+    keysPressed.p2.m = true;
+    p2.setSpeed(keysPressed.p2.k ? 0 : 10);
   }
 });
 
 document.addEventListener("keyup", (event) => {
   if (event.key === "w") {
-    p1.setSpeed(0);
+    keysPressed.p1.w = false;
+    p1.setSpeed(keysPressed.p1.s ? 10 : 0);
   }
   if (event.key === "s") {
-    p1.setSpeed(0);
+    keysPressed.p1.s = false;
+    p1.setSpeed(keysPressed.p1.w ? -10 : 0);
   }
   if (event.key === "k") {
-    p2.setSpeed(0);
+    keysPressed.p2.k = false;
+    p2.setSpeed(keysPressed.p2.m ? 10 : 0);
   }
   if (event.key === "m") {
-    p2.setSpeed(0);
+    keysPressed.p2.m = false;
+    p2.setSpeed(keysPressed.p2.k ? -10 : 0);
   }
 });
 
