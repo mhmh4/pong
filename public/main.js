@@ -87,8 +87,10 @@ class Paddle {
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
-  update() {
+  update(canvas) {
     this.y += this.speed;
+    this.y = Math.max(this.y, 0);
+    this.y = Math.min(this.y, canvas.height - this.height);
   }
 }
 
@@ -134,8 +136,8 @@ function animate() {
   b.baz(p2);
 
   b.translate();
-  p1.update();
-  p2.update();
+  p1.update(canvas);
+  p2.update(canvas);
 
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
