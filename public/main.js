@@ -134,6 +134,19 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
+function drawDashedLine() {
+  ctx.fillStyle = "#fff";
+  let rectangleWidth = 2;
+  for (let s = 0; s < canvas.height; s += 10) {
+    ctx.fillRect(
+      canvas.width / 2 - rectangleWidth / 2,
+      s,
+      rectangleWidth,
+      2 * rectangleWidth
+    );
+  }
+}
+
 let score1 = 0;
 let score2 = 0;
 
@@ -151,6 +164,9 @@ function animate() {
 
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  drawDashedLine();
+
   ctx.fillStyle = "#fff";
   ctx.fillText(score1, (1 * canvas.width) / 4, canvas.height / 10);
   ctx.fillText(score2, (3 * canvas.width) / 4, canvas.height / 10);
