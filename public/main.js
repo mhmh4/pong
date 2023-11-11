@@ -129,6 +129,11 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
+let score1 = 0;
+let score2 = 0;
+
+ctx.font = "15px sans-serif";
+
 function animate() {
   b.foo(canvas);
   b.bar(canvas);
@@ -141,6 +146,9 @@ function animate() {
 
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#fff";
+  ctx.fillText(score1, (1 * canvas.width) / 4, canvas.height / 10);
+  ctx.fillText(score2, (3 * canvas.width) / 4, canvas.height / 10);
 
   b.draw();
   p1.draw();
