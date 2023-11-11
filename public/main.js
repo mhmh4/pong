@@ -87,14 +87,6 @@ class Paddle {
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
-  moveUp() {
-    this.y -= 20;
-  }
-
-  moveDown() {
-    this.y += 20;
-  }
-
   update() {
     this.y += this.speed;
   }
@@ -107,16 +99,31 @@ const p2 = new Paddle((9 * canvas.width) / 10, canvas.height / 3, 10, 100);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "w") {
-    p1.moveUp();
+    p1.setSpeed(-10);
   }
   if (event.key === "s") {
-    p1.moveDown();
+    p1.setSpeed(10);
   }
   if (event.key === "k") {
-    p2.moveUp();
+    p2.setSpeed(-10);
   }
   if (event.key === "m") {
-    p2.moveDown();
+    p2.setSpeed(10);
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  if (event.key === "w") {
+    p1.setSpeed(0);
+  }
+  if (event.key === "s") {
+    p1.setSpeed(0);
+  }
+  if (event.key === "k") {
+    p2.setSpeed(0);
+  }
+  if (event.key === "m") {
+    p2.setSpeed(0);
   }
 });
 
