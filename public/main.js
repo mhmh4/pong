@@ -34,7 +34,7 @@ class Ball {
   }
 
   foo(canvas) {
-    if (this.position.y + this.width <= 0) {
+    if (this.position.y <= 0) {
       console.log("hit top");
       this.speedY *= -1;
     }
