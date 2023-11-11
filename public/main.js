@@ -78,6 +78,10 @@ class Paddle {
     this.height = height;
   }
 
+  setSpeed(speed) {
+    this.speed = speed;
+  }
+
   draw() {
     ctx.fillStyle = "#fff";
     ctx.fillRect(this.x, this.y, this.width, this.height);
